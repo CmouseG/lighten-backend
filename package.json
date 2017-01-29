@@ -1,0 +1,22 @@
+{
+  "name": "lighten-backend",
+  "version": "0.0.1",
+  "description": "A simple blog backend with lots of oauth integrations",
+  "main": "index.js",
+  "scripts": {
+    "start": "supervisor ./index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.16.0",
+    "express": "^4.14.0",
+    "express-graphql": "^0.6.2",
+    "express-waterline": "^0.6.0",
+    "sails-mongo": "^0.12.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.0.35",
+    "supervisor": "^0.12.0"
+  }
+}

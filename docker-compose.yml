@@ -1,0 +1,27 @@
+version: '2'
+
+services:
+  node:
+    container_name: lighten_backend
+    image: nodeapp
+    build: .
+    volumes:
+      - .:/usr/lighten_backend
+    depends_on:
+      - mongodb
+    ports:
+      - "6100:80"
+    networks:
+      - lighten-network
+
+  mongodb:
+    container_name: lighten_mongodb
+    image: mongo
+    ports:
+     - "27018:27017"
+    networks:
+      - lighten-network
+
+networks:
+  lighten-network:
+    driver: bridge

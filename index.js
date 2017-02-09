@@ -1,3 +1,5 @@
-const LightenApp = require('./bootstrap/app');
+const LightenApp = require('./lighten/app');
 
-new LightenApp();
+module.exports = LightenApp;
+
+new LightenApp(require('./api'), require('./package.json'));

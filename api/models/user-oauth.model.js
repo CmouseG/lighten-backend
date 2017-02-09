@@ -1,4 +1,4 @@
-const Model = require('../../bootstrap/common/model');
+const Model = require('../../lighten/common/model');
 
 module.exports = class UserOauthModel extends Model {
 

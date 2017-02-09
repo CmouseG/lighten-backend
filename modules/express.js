@@ -1,4 +1,4 @@
-const AppModule = require('../common/app-module');
+const AppModule = require('../lighten/common/app-module');
 const express = require('express');
 const bodyParser = require('body-parser');
 
@@ -15,7 +15,6 @@ module.exports = class ExpressAppModule extends AppModule {
 
     initRoutes() {
         const router = express.Router();
-        this.app.log.info(`Initialising Router`);
         this.app.config.server.routes.forEach(route => {
             this.app.log.info(`[${route.method}] ${route.path} => ${route.handler}`);
             router[route.method.toLowerCase()](route.path, this.getControllerMethod(route.handler));

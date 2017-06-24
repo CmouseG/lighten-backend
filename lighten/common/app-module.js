@@ -1,13 +1,27 @@
 module.exports = class AppModule {
 
-    constructor(app) {
+    constructor(id, app) {
+        Object.defineProperty(this, 'id', {
+            enumerable: false,
+            value: id
+        });
         Object.defineProperty(this, 'app', {
             enumerable: false,
             value: app
         });
     }
 
-    get log () {
+    initialize() {
+    }
+
+    validate() {
+    }
+
+    dependsOn() {
+        return [];
+    }
+
+    get log() {
         return this.app.log;
     }
 

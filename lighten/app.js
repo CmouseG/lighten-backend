@@ -4,7 +4,7 @@ module.exports = class LightenApp {
         this.api = api;
         this.pkg = pkg;
         this.initApi();
-        this.initAppModules();
+        this.initExternalModules();
     }
 
     initApi() {
@@ -13,17 +13,19 @@ module.exports = class LightenApp {
         this.services = this.initModuleContainer(this.api.services);
     }
 
-    initAppModules() {
-        const modules = this.pkg.lightenModules || [];
-        this.modules = modules.map(module => this.initModule(require.main.require(module)));
-    }
-
     initModuleContainer(modules) {
         const container = {};
         Object.keys(modules).forEach(module => {
             container[module] = this.initModule(modules[module]);
         });
         return container;
+    }
+
+    initExternalModules() {
+        const modules = this.pkg.lightenModules || [];
+        modules
+            .map(module => this.initModule(require.main.require(module)))
+            .sort();
     }
 
     initModule(module) {

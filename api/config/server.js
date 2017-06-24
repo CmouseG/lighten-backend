@@ -7,6 +7,4 @@ module.exports = {
             handler: 'UserController.create'
         }
     ]
-
-
 };
